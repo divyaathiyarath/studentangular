@@ -1,0 +1,27 @@
+<form (ngSubmit)=onSubmit(f) #f="ngForm">
+  <table class="table">
+    <tr><td>Admission no:</td><td><input type="text" name="admissionno"></td></tr>
+    <tr><td></td><td><button type="submit">Search</button></td></tr>
+  </table>
+ 
+</form>
+<p *ngIf='!status else display'></p>
+<ng-template #display>
+  <table class="table">
+      <p *ngFor="let data of myData">
+          <tr> <td></td> <td><input type="hidden" name="name" [(ngModel)]=data._id></td></tr> 
+          <tr> <td> NAME </td> <td><input type="text" name="name" [(ngModel)]=data.name></td></tr> 
+          <tr> <td> ROLL NO </td> <td><input type="text" name="message" [(ngModel)]=data.rollno> </td></tr> 
+          <tr> <td> ADMISSION NO</td> <td><input type="text" name="mailid" [(ngModel)]=data.admissionno></td></tr> 
+          <tr> <td> COLLEGE </td> <td> <input type="text" name="phone" [(ngModel)]=data.college></td></tr> 
+          <tr> <td> BRANCH </td> <td><input type="text" name="message" [(ngModel)]=data.branch> </td></tr> 
+          <tr> <td> DOB</td> <td><input type="text" name="mailid" [(ngModel)]=data.dob></td></tr> 
+          <tr> <td> EMAIL ID </td> <td> <input type="text" name="phone" [(ngModel)]=data.mailid></td></tr>
+          <tr><td></td><td><button type="submit" (click)="editFunction()">Edit</button></td></tr>
+          <tr><td></td><td><button type="submit" (click)="deleteFunction()">Delete</button></td></tr>
+    
+    
+  </p>
+  
+  </table>
+</ng-template>
